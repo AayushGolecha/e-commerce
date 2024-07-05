@@ -1,0 +1,400 @@
+.pro {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    gap: 10px;
+    background-color: rgb(255, 215, 147);
+    padding: 6px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    height: 285px;
+}
+
+.pro1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pro2 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.pro1 span {
+    font-size: 1rem;
+}
+
+.pro img {
+    width: 170px;
+    height: 150px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.25rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main1 {
+    background-color: rgb(206, 247, 0);
+    width: 400px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+    border-radius: 20px;
+    margin: 100px auto;
+}
+
+.image {
+    position: relative
+}
+
+.img1 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 20%;
+    right: 5%;
+}
+
+.img2 {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 58.5%;
+    right: 43%;
+}
+
+
+.size {
+    font-size: 1.25rem;
+    background-color: azure;
+    color: black;
+}
+
+.btn {
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-around;
+    width: 265px;
+}
+
+.red {
+    color: red;
+}
+
+span {
+    font-size: 0.9rem;
+}
+
+.col {
+    color: rgb(255, 0, 0);
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+.product img {
+    width: 350px;
+    height: 350px;
+}
+
+.product {
+    display: flex;
+    margin: 20px auto;
+    flex-wrap: wrap;
+    gap: 60px;
+    width: 900px;
+    margin-bottom: 105px;
+}
+
+.product1 span {
+    font-size: 2rem;
+}
+
+.product1 {
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.product2 {
+    display: flex;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.product2 button {
+    font-size: 1.5rem;
+}
+
+.cartbox {
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 400px;
+    background-color: rgb(255, 215, 147);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.cartpage {
+    height: 73.4vh;
+}
+
+.cartbox img {
+    width: 150px;
+    height: 150px;
+}
+
+.product-cart {
+    height: 50vh;
+    width: 480px;
+    margin-left: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.cartbox-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cartbox-1 span {
+    font-size: 1.3rem;
+}
+
+.remove {
+    color: white;
+    width: 100px;
+}
+
+.boxes {
+    display: flex;
+}
+
+.shopping-cart {
+    margin: 10px auto;
+    width: 220px;
+}
+
+.proceed-to-buy {
+    display: flex;
+    flex-direction: column;
+    height: 24vh;
+    width: 480px;
+    margin-left: 200px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    align-items: center;
+    gap: 15px;
+}
+
+.proceed-to-buy button {
+    width: 400px;
+    border-radius: 30px;
+}
+
+.proceed-to-buy h1 {
+    margin-top: 10px;
+}
+
+.proceed-to-buy div {
+    font-size: 1.5rem;
+}
+
+.order-box {
+    width: 450px;
+    background-color: rgb(93, 90, 90);
+    color: white;
+    border-radius: 30px;
+}
+
+.greet {
+    margin: 0px 0px 25px 20px;
+    padding-top: 25px;
+}
+
+.order-details {
+    padding: 15px 15px 15px 20px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.paid {
+    padding: 20px 0px 20px 20px;
+    background-color: #a8729a;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.item {
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 350px;
+    margin: 15px 0px;
+    display: flex;
+    gap: 20px;
+    padding: 10px 10px
+}
+
+.item img {
+    width: 90px;
+    height: 90px;
+}
+
+.item div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.data span {
+    font-size: 1rem;
+}
+
+.receipt {
+    display: flex;
+    justify-content: space-between;
+}
+
+.check {
+    width: 450px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pay-btn {
+    font-size: 1.5rem;
+    border-radius: 40px;
+}
+
+.order-confirm {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    background-color: white;
+    border-radius: 30px;
+    top: 20%;
+    left: 34.5%;
+    display: none;
+}
+
+.order-confirm h1 {
+    margin: 20px 120px;
+}
+
+.order-confirm img {
+    width: 150px;
+    height: 150px;
+    margin: 10px 175px;
+}
+
+.orders-page {
+    height: 77.3vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.orders-page h1 {
+    margin: 30px 0px;
+}
+
+.orders-box {
+    width: 450px;
+    background-color: white;
+    border-radius: 20px;
+    height: 400px;
+    overflow-y: auto;
+}
+.order-top{
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background-color: white;
+}
+
+.order {
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(221, 221, 221);
+    padding: 20px;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    cursor: pointer;
+}
+
+.order:hover {
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.5);
+}
+
+.order-detail-box{
+    height: 55vh;
+    width: 470px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 100;
+    top: 17%;
+    left: 35%;
+    display: none;
+    padding-bottom: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.orderbox {
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 380px;
+    background-color: rgb(255, 215, 147);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.orderbox img {
+    width: 100px;
+    height: 100px;
+}
+
+.orderbox-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.orderbox-1 span {
+    font-size: 1.2rem;
+}
