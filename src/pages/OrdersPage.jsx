@@ -34,7 +34,7 @@ const OrdersPage = ({ isLogged, setIsLogged, searchVal, setSearchVal, list, setL
           <hr />
           {orders.map((data) => (
             <div key={data[1]} className="order" onClick={() => showOrderDetails(data[0])}>
-              <div>Order Id: {data[1]}</div>
+              <div>Order Id: #{data[1]}</div>
               <hr />
               <div>Total Paid: {data[2]}</div>
             </div>

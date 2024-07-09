@@ -92,6 +92,30 @@ a {
     display: flex;
     gap: 5px;
     color: black;
+    position: relative;
+}
+
+.cart-count{
+    background-color: red;
+    border-radius: 50%;
+    height: 26px;
+    width: 28px;
+    position: absolute;
+    left: 20px;
+    bottom: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart img{
+    height: 36px;
+    width: 36px;
+}
+
+.cart-count p{
+    font-size: 18px;
+    margin-top: 3px;
 }
 
 select {

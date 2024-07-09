@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { pay } from "../redux/countSlice"
 import { useState } from "react"
 import { increment } from "../redux/orderIdSlice"
@@ -13,7 +13,7 @@ const CheckoutPage = ({ isLogged, setId }) => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [check, setCheck] = useState(false)
-    const Id = useSelector((state) => state.Id.value)
+    let Id = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
     let total = 0
     if (cart != null) {
         for (let i = 0; i < cart.length; i++) {
@@ -27,9 +27,9 @@ const CheckoutPage = ({ isLogged, setId }) => {
     const handlePay = async () => {
         setCheck(true)
         orders = [...orders, [[...cart], Id, amount]];
-        await postOrdersData(orders)
-        localStorage.setItem('orders', JSON.stringify(orders))
         document.getElementsByClassName('order-confirm')[0].style.display = 'block';
+        localStorage.setItem('orders', JSON.stringify(orders))
+        await postOrdersData(orders)
         setTimeout(() => {
             navigate(`/logged/${name}`)
             dispatch(pay())

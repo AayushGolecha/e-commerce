@@ -7,7 +7,8 @@ import './style.css';
 import eye from '../assets/eye.png';
 import hidden from '../assets/hidden.png';
 import { Msg } from "../components/message";
-import { getUserDataID, putUserDataID } from '../services/apiclient.jsx';
+import { getUserDataID, putUserDataID } from '../services/apiclient.jsx'
+
 
 const ProfilePage = ({ isLogged, setIsLogged, validationSchema }) => {
   const { name } = useParams()
@@ -35,7 +36,7 @@ const ProfilePage = ({ isLogged, setIsLogged, validationSchema }) => {
   }
   setTimeout(() => {
     setCheck1(true)
-  }, 600)
+  }, 1000)
   const handleSave = async (value, setSubmitting) => {
     await putUserDataID(id, value.fullname, value.email, value.password)
     setCheck(true)
@@ -69,9 +70,10 @@ const ProfilePage = ({ isLogged, setIsLogged, validationSchema }) => {
           )}
         </Formik>
         {check ? <Msg message="Changes Saved!" /> : []}
-      </div> : ''}
+      </div> : <div className="spinner-grow spinner" style={{ width: '5rem', height: '5rem' }} role="status">
+        <span className="sr-only">Loading...</span>
+      </div>}
     </MainLayout >
   )
 }
-
 export default ProfilePage

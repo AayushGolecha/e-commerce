@@ -3,7 +3,7 @@ import MainLayout from "../components/MainLayout"
 import './style.css'
 import { useNavigate, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
-import { reduce } from '../redux/countSlice'
+import { add, reduce, decrease } from '../redux/countSlice'
 
 // eslint-disable-next-line react/prop-types
 const CartPage = ({ isLogged, setIsLogged, setId }) => {
@@ -41,6 +41,37 @@ const CartPage = ({ isLogged, setIsLogged, setId }) => {
         setId(id)
         navigate(isLogged ? `/product-info/${name}` : '/product-info')
     }
+    const handleIncrease = (data) => {
+        let storage = JSON.parse(localStorage.getItem("carts"));
+        if (storage == null) {
+            storage = [];
+        }
+        let found = storage.find((storage) => storage.id === data.id)
+        if (found) {
+            found.Quantity += 1
+            dispatch(add());
+        }
+        localStorage.setItem('carts', JSON.stringify(storage))
+    }
+    const handleDecrease = (data) => {
+        let storage = JSON.parse(localStorage.getItem("carts"));
+        if (storage == null) {
+            storage = [];
+        }
+        let found = storage.find((storage) => storage.id === data.id)
+        if (found) {
+            if (found.Quantity > 1) {
+                found.Quantity -= 1
+                dispatch(decrease()); 
+                localStorage.setItem('carts', JSON.stringify(storage))
+            }
+            else {
+                let newCart = cart.filter((cart) => cart.id !== data.id)
+                localStorage.setItem('carts', JSON.stringify(newCart))
+                dispatch(reduce())
+            }
+        }
+    }
     return (
         <MainLayout isLogged={isLogged} setIsLogged={setIsLogged} name={name}>
             <div className="cartpage">
@@ -54,7 +85,11 @@ const CartPage = ({ isLogged, setIsLogged, setId }) => {
                                 <div className='cartbox-1'>
                                     <span>{cart.name}</span>
                                     <span>₹{cart.price}</span>
-                                    <span>Quantity: {cart.Quantity}</span>
+                                    <span className="item-quantity">Quantity:
+                                        <div onClick={() => { handleDecrease(cart) }}>-</div>
+                                        {cart.Quantity}
+                                        <div onClick={() => { handleIncrease(cart) }}>+</div>
+                                    </span>
                                     <button className="remove" onClick={() => { handleRemove(cart.id) }}>Remove</button>
                                 </div>
                             </div>

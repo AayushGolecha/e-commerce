@@ -163,7 +163,7 @@ p {
 .product-cart {
     height: 50vh;
     width: 480px;
-    margin-left: 200px;
+    margin-left: 180px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     overflow-y: auto;
@@ -173,10 +173,28 @@ p {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    width: 150px;
 }
 
 .cartbox-1 span {
     font-size: 1.3rem;
+}
+
+.item-quantity{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.item-quantity div{
+    background-color: white;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
 .remove {
@@ -260,6 +278,7 @@ p {
 .item img {
     width: 90px;
     height: 90px;
+    cursor: pointer;
 }
 
 .item div {
@@ -419,4 +438,43 @@ p {
 .btn1 {
     margin-left: 42px;
     margin-top: 15px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+@keyframes spinner-grow {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.spinner-grow {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-animation: .75s linear infinite spinner-grow;
+    animation: .75s linear infinite spinner-grow;
+}
+
+.spinner{
+    width: 100px;
+    margin: 150px 0px 150px 800px;
 }

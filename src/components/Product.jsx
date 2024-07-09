@@ -2,12 +2,13 @@
 import { useNavigate } from 'react-router-dom';
 import { getData } from '../services/apiclient';
 import { useEffect, useCallback } from 'react';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { add } from '../redux/countSlice'
 
 export const Product = ({ isLogged, setId, name, list, setList }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const count = useSelector((state) => state.count.value)
     const fetchData = useCallback(async () => {
         const response = await getData()
         setList(response)
@@ -18,6 +19,33 @@ export const Product = ({ isLogged, setId, name, list, setList }) => {
     const handleBuy = (e, data) => {
         e.stopPropagation();
         if (isLogged) {
+            if (count < 50) {
+                dispatch(add())
+                let storage = JSON.parse(localStorage.getItem("carts"));
+                if (storage == null) {
+                    storage = [];
+                }
+                let found = storage.find((storage) => storage.id === data.id)
+                if (found) {
+                    found.Quantity += 1
+                }
+                else {
+                    storage.push({ ...data, Quantity: 1 })
+                }
+                localStorage.setItem('carts', JSON.stringify(storage))
+                navigate(`/cart/${name}`)
+            }
+            else {
+                return false
+            }
+        }
+        else {
+            navigate('/login')
+        }
+    }
+    const handleAdd = (e, data) => {
+        e.stopPropagation();
+        if (count < 50) {
             dispatch(add())
             let storage = JSON.parse(localStorage.getItem("carts"));
             if (storage == null) {
@@ -31,27 +59,10 @@ export const Product = ({ isLogged, setId, name, list, setList }) => {
                 storage.push({ ...data, Quantity: 1 })
             }
             localStorage.setItem('carts', JSON.stringify(storage))
-            navigate(`/cart/${name}`)
         }
-        else {
-            navigate('/login')
+        else{
+            return false
         }
-    }
-    const handleAdd = (e, data) => {
-        e.stopPropagation();
-        dispatch(add())
-        let storage = JSON.parse(localStorage.getItem("carts"));
-        if (storage == null) {
-            storage = [];
-        }
-        let found = storage.find((storage) => storage.id === data.id)
-        if (found) {
-            found.Quantity += 1
-        }
-        else {
-            storage.push({ ...data, Quantity: 1 })
-        }
-        localStorage.setItem('carts', JSON.stringify(storage))
     }
     const handlePage = (id) => {
         setId(id)

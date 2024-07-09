@@ -45,7 +45,7 @@ const Footer = () => {
           <Column>
             <Heading>Contact Us</Heading>
             <FooterLink href="#">
-              Uttar Pradesh
+              New Delhi
             </FooterLink>
             <FooterLink href="#">
               Ahemdabad

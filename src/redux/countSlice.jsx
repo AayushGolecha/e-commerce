@@ -9,6 +9,9 @@ export const countSlice = createSlice({
         add: (state) => {
             state.value += 1
         },
+        decrease: (state) => {
+            state.value -= 1
+        },
         logout: (state) => {
             state.value = 0
         },
@@ -28,5 +31,5 @@ export const countSlice = createSlice({
         }
     },
 })
-export const { add, logout, reduce, pay } = countSlice.actions
+export const { add, decrease, logout, reduce, pay } = countSlice.actions
 export default countSlice.reducer

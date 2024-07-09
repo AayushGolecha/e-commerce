@@ -54,7 +54,7 @@ const Header = ({ isLogged, setIsLogged, name, list, setList, searchVal, setSear
                 <Link to={isLogged ? `/cart/${name}` : `/cart`}>
                     <div className='cart'>
                         <img src={cart} alt='cart' />
-                        {count >= 1 && isLogged ? <p>{count}</p> : ''}
+                        {count >= 1 && isLogged ? <div className='cart-count'><p>{count}</p></div> : ''}
                     </div>
                 </Link>
                 {isLogged ? <div className='dropdown'><Dropdown label={name.toUpperCase()} inline>
