@@ -8,7 +8,6 @@ import { add } from '../redux/countSlice'
 export const Product = ({ isLogged, setId, name, list, setList }) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    // let cart = JSON.parse(localStorage.getItem('carts')) || []
     const fetchData = useCallback(async () => {
         const response = await getData()
         setList(response)
@@ -72,7 +71,7 @@ export const Product = ({ isLogged, setId, name, list, setList }) => {
                     </div>
                     <div className='pro2'>
                         <button onClick={(e) => handleBuy(e, data)}>Buy Now</button>
-                        <button onClick={isLogged ? (e) => { handleAdd(e, data) } : (e) => handleProp(e)}>Add to cart</button>
+                        <button onClick={isLogged ? (e) => { handleAdd(e, data) } : (e) => handleProp(e)}>Add to Cart</button>
                     </div>
                 </div>
             ))}

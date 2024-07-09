@@ -16,7 +16,7 @@ const Register = ({ initialValue, validationSchema }) => {
         setImg(!img)
     }
     const navigate = useNavigate()
-    const handleSubmit = async(value, setSubmitting) => {
+    const handleSubmit = async (value, setSubmitting) => {
         await postUserData(value.fullname, value.email, value.password)
         setCheck(true)
         setTimeout(() => {

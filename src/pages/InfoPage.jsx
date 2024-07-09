@@ -69,7 +69,7 @@ const InfoPage = ({ isLogged, setIsLogged, id }) => {
                     </div>
                     <div className='product2'>
                         <button className='green' onClick={(e) => handleBuy(e, data)} >Buy Now</button>
-                        <button className='delete' onClick={isLogged ? (e) => { handleAdd(e, data)} : ''} >Add to cart</button>
+                        <button className='delete' onClick={isLogged ? (e) => { handleAdd(e, data) } : ''} >Add to Cart</button>
                     </div>
                 </div>
             </div>

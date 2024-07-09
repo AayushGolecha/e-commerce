@@ -4,7 +4,7 @@ import './style.css'
 import { Link, useNavigate } from 'react-router-dom'
 import cart from '../assets/cart.svg'
 import search from '../assets/search.svg'
-import logo from '../assets/logo.png'
+import logo from '../assets/newlogo.png'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../redux/countSlice'
 import { getData } from '../services/apiclient';
@@ -41,8 +41,8 @@ const Header = ({ isLogged, setIsLogged, name, list, setList, searchVal, setSear
     return (
         <div className='head'>
             <ul className='nav'>
-                <Link to={isLogged ? `/${name}` : `/`}><img src={logo} alt='logo' /></Link>
-                <Link to={isLogged ? `/${name}` : `/`}><li>Home</li></Link>
+                <Link to={isLogged ? `/logged/${name}` : `/`}><img src={logo} alt='logo' /></Link>
+                <Link to={isLogged ? `/logged/${name}` : `/`}><li>Home</li></Link>
                 <Link to={isLogged ? `/about/${name}` : `/about`}><li>About</li></Link>
                 <Link to={isLogged ? `/contact/${name}` : `/contact`}><li>Contact</li></Link>
             </ul>
@@ -58,7 +58,7 @@ const Header = ({ isLogged, setIsLogged, name, list, setList, searchVal, setSear
                     </div>
                 </Link>
                 {isLogged ? <div className='dropdown'><Dropdown label={name.toUpperCase()} inline>
-                    <Dropdown.Item >Profile</Dropdown.Item>
+                    <Dropdown.Item onClick={() => navigate(`/profile/${name}`)}>Profile</Dropdown.Item>
                     <Dropdown.Item onClick={handleOrder}>Orders</Dropdown.Item>
                 </Dropdown></div> : ''}
                 <Link to={isLogged ? '/' : '/login'}><button onClick={() => { handleDelete(); dispatch(logout()) }}>{isLogged ? 'Logout' : 'Login'}</button></Link>

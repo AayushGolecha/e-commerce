@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { reduce } from '../redux/countSlice'
 
 // eslint-disable-next-line react/prop-types
-const CartPage = ({ isLogged, setIsLogged }) => {
+const CartPage = ({ isLogged, setIsLogged, setId }) => {
     const dispatch = useDispatch();
     const count = useSelector((state) => state.count.value)
     const { name } = useParams()
-    const navigate=useNavigate()
+    const navigate = useNavigate()
     let cart = JSON.parse(localStorage.getItem('carts')) || []
     const handleRemove = (id) => {
         let newCart = cart.filter((cart) => cart.id !== id)
@@ -19,7 +19,7 @@ const CartPage = ({ isLogged, setIsLogged }) => {
     }
     let total = 0
     let totalItems = 0
-    if(cart != null){
+    if (cart != null) {
         for (let i = 0; i < cart.length; i++) {
             let item = cart[i]
             totalItems += item.Quantity
@@ -29,13 +29,17 @@ const CartPage = ({ isLogged, setIsLogged }) => {
     }
     let nfObject = new Intl.NumberFormat('en-IN');
     let output = nfObject.format(total);
-    const handleCheckout=()=>{
+    const handleCheckout = () => {
         if (cart.length == 0) {
             return false
         }
-        else{
+        else {
             navigate(`/checkout/${name}`);
         }
+    }
+    const handlePage = (id) => {
+        setId(id)
+        navigate(isLogged ? `/product-info/${name}` : '/product-info')
     }
     return (
         <MainLayout isLogged={isLogged} setIsLogged={setIsLogged} name={name}>
@@ -46,12 +50,12 @@ const CartPage = ({ isLogged, setIsLogged }) => {
                         <h1 className="shopping-cart">Shopping Cart</h1>
                         {cart.map((cart) => (
                             <div key={cart.id} className='cartbox'>
-                                <img src={cart.imageUrl} alt="Product" />
+                                <img src={cart.imageUrl} alt="Product" onClick={() => { handlePage(cart.id) }} />
                                 <div className='cartbox-1'>
                                     <span>{cart.name}</span>
                                     <span>₹{cart.price}</span>
                                     <span>Quantity: {cart.Quantity}</span>
-                                    <button className="remove" onClick={() => {handleRemove(cart.id)}}>Remove</button>
+                                    <button className="remove" onClick={() => { handleRemove(cart.id) }}>Remove</button>
                                 </div>
                             </div>
                         ))}</div>

@@ -36,13 +36,14 @@ const Login = ({ setIsLogged }) => {
     })
     const handleSubmit = (values, setSubmitting) => {
         let checkUser = data.find((e) => (e.email === values.email && e.password === values.password))
+        localStorage.setItem('ID', JSON.stringify(checkUser.id))
         if (checkUser) {
             setCheck(true)
             setCheck1(false)
             setIsLogged(true)
             setTimeout(() => {
                 setCheck(false)
-                navigate(`/${checkUser.fullname}`)
+                navigate(`/logged/${checkUser.fullname}`)
                 setCheck(true)
             }, 1000)
         }

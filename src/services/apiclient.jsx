@@ -10,15 +10,24 @@ export const getProduct = async (id) => {
     return response.data
 }
 
-export const postUserData = async ( fullname, email, password) => {
-    await axios.post('https://66879c5a0bc7155dc018520b.mockapi.io/user-data', { fullname, email, password})
-}
-
 export const getUserData = async () => {
     const response = await axios.get('https://66879c5a0bc7155dc018520b.mockapi.io/user-data')
     return response.data
 }
 
-export const postOrdersData = async ( orders) => {
+export const postUserData = async (fullname, email, password) => {
+    await axios.post('https://66879c5a0bc7155dc018520b.mockapi.io/user-data', { fullname, email, password })
+}
+
+export const getUserDataID = async (id) => {
+    const response = await axios.get(`https://66879c5a0bc7155dc018520b.mockapi.io/user-data/${id}`)
+    return response.data
+}
+
+export const putUserDataID = async (id, fullname, email, password) => {
+    await axios.put(`https://66879c5a0bc7155dc018520b.mockapi.io/user-data/${id}`, { fullname, email, password })
+}
+
+export const postOrdersData = async (orders) => {
     await axios.post('https://6687aac40bc7155dc01892d8.mockapi.io/Orders-data', { orders })
 }

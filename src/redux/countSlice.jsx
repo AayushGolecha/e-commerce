@@ -13,7 +13,7 @@ export const countSlice = createSlice({
             state.value = 0
         },
         reduce: (state) => {
-            const cart =   JSON.parse(localStorage.getItem('carts'))
+            const cart = JSON.parse(localStorage.getItem('carts'))
             let totalItems = 0
             if (cart != null) {
                 for (let i = 0; i < cart.length; i++) {
